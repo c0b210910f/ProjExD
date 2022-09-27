@@ -1,5 +1,6 @@
 from random import randint, sample, shuffle
 import copy
+import datetime
 tmozisuu = 10
 kmozisuu = 2
 alphallist = list("QWERTYUIOPASDFGHJKLZXCVBNM")
@@ -49,5 +50,9 @@ def quiz():
     
 
 if __name__ == "__main__":
+    st = datetime.datetime.now()
 
     quiz()
+    ed = datetime.datetime.now()
+    print("完答するのにかかった時間")
+    print((ed-st).seconds)
