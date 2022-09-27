@@ -29,6 +29,10 @@ def quiz():
             a = input(str(i+1) + "つ目の文字を入力してください：")
             if a not in kmozi:
                 print("不正解です。")
+                if __name__ == "__main__":
+
+                    quiz()
+
                 
 
 
@@ -37,6 +41,9 @@ def quiz():
 
     else:
         print("不正解")
+        if __name__ == "__main__":
+
+            quiz()
 
 
     
