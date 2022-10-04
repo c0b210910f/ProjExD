@@ -1,9 +1,10 @@
+from calendar import c
 import tkinter as tk
 import tkinter.messagebox as tkm
 
 root = tk.Tk()
 root.title("calc")
-root.geometry("300x600")
+root.geometry("500x700")
 
 def button_click(event):
     btn = event.widget
@@ -12,9 +13,15 @@ def button_click(event):
 
 def click_equal(event):
     equal = entry.get()
+    #if equal in "×":
+    #equal.replace("×","*")
     res = eval(equal)
     entry.delete(0, tk.END)
     entry.insert(tk.END, res)
+
+def click_AC(event):
+    entry.delete(0, tk.END)
+
 
 #数字
 for num in range(10):
@@ -22,8 +29,17 @@ for num in range(10):
     button.bind("<1>", button_click)
     button.grid(row=num//3+1,column=num%3)
 
-#+演算子
-button = tk.Button(root, text="+", font=("Times New Roman", 30), width=4, height=2)
+#演算子
+
+operator_list = ["/", "*", "-", "+"]
+for ol in operator_list:
+    button = tk.Button(root, text=ol, font=("Times New Roman", 30), width=4, height=2)
+    button.bind("<1>", button_click)
+    button.grid(row=operator_list.index(ol)+1,column=4)
+
+
+#.
+button = tk.Button(root, text=".", font=("Times New Roman", 30), width=4, height=2)
 button.bind("<1>", button_click)
 button.grid(row=4,column=1)
 
@@ -31,6 +47,21 @@ button.grid(row=4,column=1)
 button = tk.Button(root, text="=", font=("Times New Roman", 30), width=4, height=2)
 button.bind("<1>", click_equal)
 button.grid(row=4,column=2)
+
+#AC
+
+button = tk.Button(root, text="AC", font=("Times New Roman", 30), width=4, height=2,)
+button.bind("<1>", click_AC)
+button.grid(row=0,column=4)
+
+#()
+kakko_list = ["(", ")"]
+for kl in kakko_list:
+    button = tk.Button(root, text=kl, font=("Times New Roman", 30), width=4, height=2)
+    button.bind("<1>", button_click)
+    button.grid(row=kakko_list.index(kl)+1,column=5)
+
+
 
 entry = tk.Entry(root, justify="right", width=10, font=("Times New Roman",40))
 entry.grid(row=0,column=0,columnspan=3)
