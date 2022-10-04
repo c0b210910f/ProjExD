@@ -4,7 +4,6 @@ import tkinter.messagebox as tkm
 root = tk.Tk()
 root.title("calc")
 root.geometry("500x700")
-
 def button_click(event):
     btn = event.widget
     txt = btn["text"]
@@ -26,14 +25,14 @@ def click_AC(event):
 
 #数字ボタンを追加
 for num in range(10):
-    button = tk.Button(root, text=9-num, font=("Times New Roman", 30), width=4, height=2)
+    button = tk.Button(root, text=9-num, font=("Times New Roman", 30), width=4, height=2, bg="grey", fg="white")
     button.bind("<1>", button_click)
     button.grid(row=num//3+1,column=num%3)
 
 #演算子ボタンを追加
 operator_list = ["/", "*", "-", "+"]
 for ol in operator_list:
-    button = tk.Button(root, text=ol, font=("Times New Roman", 30), width=4, height=2)
+    button = tk.Button(root, text=ol, font=("Times New Roman", 30), width=4, height=2, bg="orange")
     button.bind("<1>", button_click)
     button.grid(row=operator_list.index(ol)+1,column=4)
 
@@ -50,7 +49,7 @@ button.grid(row=4,column=2)
 
 #ACのボタンを追加
 
-button = tk.Button(root, text="AC", font=("Times New Roman", 30), width=4, height=2,)
+button = tk.Button(root, text="AC", font=("Times New Roman", 30), width=4, height=2, fg="red")
 button.bind("<1>", click_AC)
 button.grid(row=0,column=4)
 
@@ -63,7 +62,7 @@ for kl in kakko_list:
 
 
 
-entry = tk.Entry(root, justify="right", width=10, font=("Times New Roman",40))
+entry = tk.Entry(root, justify="right", width=10, font=("Times New Roman",40), bg="black", fg="white")
 entry.grid(row=0,column=0,columnspan=3)
 
 root.mainloop()
