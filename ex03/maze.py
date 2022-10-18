@@ -24,7 +24,21 @@ def main_proc():
     if key == "Right":
         mx += 1
 
-    cx, cy = mx*100+50, my*100+50 #練習問題１１
+    if maze_lst[my][mx] == 0:
+        cx, cy = mx*100+50, my*100+50 #練習問題１１
+    else:
+        if key == "Up":
+            my += 1
+
+        if key == "Down":
+            my -= 1
+
+        if key == "Left":
+            mx += 1
+
+        if key == "Right":
+            mx -= 1
+
 
     canv.coords("tori", cx, cy)
     root.after(100, main_proc)
@@ -48,11 +62,13 @@ if __name__ == "__main__":
 
     root.bind("<KeyRelease>", key_up) #練習問題６
 
-    main_proc() #練習問題７
+    #main_proc() #練習問題７
 
     maze_lst = mm.make_maze(15,9) #練習問題９
 
     mm.show_maze(canv, maze_lst) #練習問題１０
+
+    main_proc() #練習問題７
 
     canv.create_image(cx, cy, image=tori, tag="tori") #こうかとんを迷路の上に
 
