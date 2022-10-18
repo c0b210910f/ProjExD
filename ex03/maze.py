@@ -10,18 +10,21 @@ def key_up(event):
     key = ""
 
 def main_proc():
+    global mx, my
     global cx, cy
     if key == "Up":
-        cy -= 20
+        my -= 1
 
     if key == "Down":
-        cy += 20
+        my += 1
 
     if key == "Left":
-        cx -= 20
+        mx -= 1
 
     if key == "Right":
-        cx += 20
+        mx += 1
+
+    cx, cy = mx*100+50, my*100+50 #練習問題１１
 
     canv.coords("tori", cx, cy)
     root.after(100, main_proc)
@@ -35,8 +38,9 @@ if __name__ == "__main__":
     canv.pack() #練習問題２
 
     tori = tk.PhotoImage(file="fig/1.png")
+    mx, my = 1, 1
     cx, cy = 300, 400
-    canv.create_image(cx, cy, image=tori, tag="tori") #練習問題３
+    #canv.create_image(cx, cy, image=tori, tag="tori") #練習問題３
 
     key = "" #練習問題４
 
@@ -49,6 +53,8 @@ if __name__ == "__main__":
     maze_lst = mm.make_maze(15,9) #練習問題９
 
     mm.show_maze(canv, maze_lst) #練習問題１０
+
+    canv.create_image(cx, cy, image=tori, tag="tori") #こうかとんを迷路の上に
 
 
     root.mainloop()
