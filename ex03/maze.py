@@ -61,11 +61,9 @@ if __name__ == "__main__":
     tori = tk.PhotoImage(file="fig/1.png")
     mx, my = 0, 1
     cx, cy = 300, 400
-    #canv.create_image(cx, cy, image=tori, tag="tori") #練習問題３
     key = "" #練習問題４
     root.bind("<KeyPress>", key_down) #練習問題５
     root.bind("<KeyRelease>", key_up) #練習問題６
-    #main_proc() #練習問題７
     maze_lst = mm.make_maze(15,9) #練習問題９
     mm.show_maze(canv, maze_lst) #練習問題１０
     main_proc() #練習問題７
@@ -75,5 +73,4 @@ if __name__ == "__main__":
     tmr = 0
     jid = None
     root.after(1000, count_up)
-    #root.bind("<KeyPress>", key_down)
     root.mainloop()
