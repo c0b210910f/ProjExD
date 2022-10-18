@@ -11,4 +11,6 @@ if __name__ == "__main__":
     cx, cy = 300, 400
     canv.create_image(cx, cy, image=tori, tag="tori") #練習問題３
 
+    key = "" #練習問題４
+
     root.mainloop()
