@@ -112,7 +112,6 @@ def main():
             scrn_sfc.blit(go_sfc, go_rct)
             pg.display.update()
             clock.tick(0.25)
-
             return
         if tori_rct.colliderect(bomb_rct2):
             scrn_sfc.blit(go_sfc, go_rct)
